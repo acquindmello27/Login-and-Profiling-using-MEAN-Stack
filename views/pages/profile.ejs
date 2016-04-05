@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <main>
+            <h2 class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <% if (locals.welcomeNote) { %>
+                <%= welcomeNote %>
+                <% } %>
+            </h2>
+            <form method="POST" action="/logout">
+                 <div class=".col-xs-6 .col-sm-3">
+                    <button class="btn btn-success" id="btn-profile" type="submit">Logout</button>
+                </div>
+            </form>
+            <!--Main Code Start-->  
+            <div class="container mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    
+                    <div class="mainbox col-xs-6" style="border-right: 1px solid#888; padding-top:15px;">
+                        <form  class="form-horizontal" id="profileform" method="POST" action="/update_profile">
+                                            
+                                    <div style="margin-bottom: 25px" class="input-group">
+                                            <label for="firstname" class="control-label">First Name</label>
+                                            <input id="firstname" type="text" class="form-control" name="firstname">
+                                    </div>
+                                        
+                                    <div style="margin-bottom: 25px" class="input-group">
+                                        <label for="lastname" class="control-label">Last Name</label>
+                                        <input id="lastname" type="text" class="form-control" name="lastname">
+                                    </div>
+
+                                    <div style="margin-bottom: 25px" class="input-group">
+                                        <label for="hobby" class="control-label">Hobby</label>
+                                        <input id="hobby" type="text" class="form-control" name="hobby">
+                                    </div>
+
+                                    <div style="margin-bottom: 25px" class="input-group">
+                                        <label for="petname" class="control-label">Pet Name</label>
+                                        <input id="petname" type="text" class="form-control" name="petname">
+                                    </div>
+
+
+                                    <div style="margin-top:10px" class="form-group">
+                                            <!-- Button -->
+
+                                        <div class="col-sm-12 controls">
+                                            <button class="btn btn-success" id="btn-profile" type="submit">Save Changes</button>
+                                        </div>
+                                    </div>
+  
+                        </form>
+                    </div>
+                    <div class="mainbox col-xs-6">
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <label for="firstname" class="control-label">First Name</label>
+                                <span class="input-xlarge uneditable-input">
+                                    <% if (locals.profileData) { %>
+                                    <%= locals.profileData[0].profile.firstname %>
+                                    <% } %>
+                                </span>
+                            </div>
+
+                             <div style="margin-bottom: 25px" class="input-group">
+                                <label for="lastname" class="control-label">Last Name</label>
+                                <span class="input-xlarge uneditable-input">
+                                    <% if (locals.profileData) { %>
+                                    <%= locals.profileData[0].profile.lastname %>
+                                    <% } %>
+                                </span>
+                            </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <label for="hobby" class="control-label">Hobby</label>
+                                <span class="input-xlarge uneditable-input">
+                                    <% if (locals.profileData) { %>
+                                    <%= locals.profileData[0].profile.hobby %>
+                                    <% } %>
+                                </span>
+                            </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <label for="petname" class="control-label">Pet Name</label>
+                                <span class="input-xlarge uneditable-input">
+                                    <% if (locals.profileData) { %>
+                                    <%= locals.profileData[0].profile.petname %>
+                                    <% } %>
+                                </span>
+                            </div>
+                    </div>
+                  
+            </div>
+            <!--Main Code End-->      
+        </main>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>
